@@ -6,9 +6,11 @@ Here, you'll find a curated collection of my work, showcasing my skills and expe
 # Skills
 Languages: JavaScript, TypeScript, Python
 
-Backend: Node.js, Express.js
-
 Frameworks: React, Angular
+
+Styling: CSS, SCSS, Tailwind, Bootstrap
+
+Backend: Node.js, Express.js
 
 Databases: MongoDB, MySQL
 
