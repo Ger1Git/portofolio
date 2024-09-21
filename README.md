@@ -1,4 +1,4 @@
-Welcome to my portfolio website! Here, you'll find a curated collection of my work, showcasing my skills and experiences in [your field, e.g., web development, design, etc.]. This site serves as both a personal introduction and a demonstration of my capabilities.
+Welcome to my portfolio website! Here, you'll find a curated collection of my work, showcasing my skills and experiences in web development. This site serves as both a personal introduction and a demonstration of my capabilities.
 
 Table of Contents
 About Me
@@ -6,7 +6,6 @@ Skills
 Projects
 Contact
 About Me
-I'm George, a passionate full-stack developer who loves creating engaging and user-friendly experiences. My journey in [your field] has equipped me with a diverse skill set and a unique perspective on problem-solving.
 
 Skills
 Languages: JavaScript, TypeScript
