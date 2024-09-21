@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #000300;
+}
+.glowButton {
+    @apply border-none outline-none cursor-pointer bg-[#125c29] relative z-0 rounded-lg transition-all duration-300;
+    box-shadow: 0 0 5px #125c29, 0 0 25px #125c29, 0 0 50px #125c29, 0 0 200px #125c29;
+    animation: glowingShadow 2.5s infinite;
+    transition: background 0.5s ease;
+
+    &:hover {
+        background: #18a818;
+    }
+}
+
+@keyframes glowingShadow {
+    0% {
+        box-shadow: 0 0 5px #125c29, 0 0 25px #125c29, 0 0 50px #125c29, 0 0 200px #125c29;
+    }
+    50% {
+        box-shadow: 0 0 5px #66ff66, 0 0 25px #66ff66, 0 0 50px #66ff66, 0 0 200px #66ff66;
+    }
+    100% {
+        box-shadow: 0 0 5px #125c29, 0 0 25px #125c29, 0 0 50px #125c29, 0 0 200px #125c29;
+    }
+}
+
+.blinking-cursor::after {
+    content: '|';
+    display: inline-block;
+    font-weight: bold;
+    transform: translateY(-2px);
+    animation: blink 1s step-start infinite;
+    color: #00df9a;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
