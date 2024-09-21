@@ -9,11 +9,11 @@ About Me
 I'm George, a passionate full-stack developer who loves creating engaging and user-friendly experiences. My journey in [your field] has equipped me with a diverse skill set and a unique perspective on problem-solving.
 
 Skills
-Languages: [JavaScript, TypeScript]
-Backend: [NodeJS, Express.js]
-Frameworks: [React, Angular]
-Databases: [MongoDB, MySQL]
-Tools: [Git, Figma]
+Languages: JavaScript, TypeScript
+Backend: NodeJS, Express.js
+Frameworks: React, Angular
+Databases: MongoDB, MySQL
+Tools: Git, Figma
 
 Projects
 Here are a few highlights from my work:
