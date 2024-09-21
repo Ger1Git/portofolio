@@ -16,12 +16,14 @@ Tools: Git, Figma
 
 # Projects
 
-## Spendings Tracker
+**Spendings Tracker**
+
 Developed a web application for tracking incomes and expenses, featuring real-time data visualization through interactive charts.
 
-## Twitter Clone
+**Twitter Clone**
 
 Built a Twitter clone web application, enabling users to create accounts, post tweets, follow other users, and interact with likes and comments.
 
-## Prediction of Gaze Direction in Images
+**Prediction of Gaze Direction in Images**
+
 Developed an application using Python, where I trained a convolutional neural network (CNN) model to predict the direction of gaze in images.
