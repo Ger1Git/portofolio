@@ -1,16 +1,14 @@
 import AboutMe from './components/AboutMe';
-import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import ProfileCard from './components/ProfileCard';
+import Skills from './components/Skills';
 
 function App() {
     return (
-        <>
+        <div className='flex flex-col justify-center text-white'>
             <Navbar />
-            <ProfileCard />
             <AboutMe />
-            <Footer />
-        </>
+            <Skills />
+        </div>
     );
 }
 

@@ -1,11 +1,27 @@
+import AnimatedLine from './AnimatedLine';
+import ProfileCard from './ProfileCard';
+
 const AboutMe = () => {
+    const text = `
+    I'm a Full Stack Developer with expertise in front-end and back-end development. 
+    I have a passion for problem-solving and a keen eye for detail, which enables me to craft
+    seamless digital experiences that exceed expectations. In addition to having a good foundation in JavaScript,
+    I have improved my skills in AngularJS and React during my professional experience. As I continue 
+    to grow as a developer, I am eager to expand my knowledge and stay
+    at the forefront of modern web technologies.
+    `;
+
+    const lines = text.split('\n').filter((line) => line.trim() !== '');
+
     return (
-        <div className='text-center text-white'>
-            I&#39;m a Full Stack Developer with expertise in front-end and back-end development. I love to solve problems and have an excellent eye for detail,
-            so I&#39;m great at creating flawless digital experiences that go above and beyond. In addition to having a good foundation in JavaScript, I have
-            improved my skills in AngularJS and React during my professional experience. As I continue to hone my abilities in contemporary web development, I
-            am excited to further broadening my knowledge in these technologies.
-        </div>
+        <>
+            <ProfileCard />
+            <div className='text-center text-xl text-white px-[40px] lg:py-[20px]'>
+                {lines.map((line, index) => (
+                    <AnimatedLine key={index} line={line} index={index} />
+                ))}
+            </div>
+        </>
     );
 };
 

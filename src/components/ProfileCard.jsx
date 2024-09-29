@@ -2,6 +2,11 @@ import profilePic from '../public/CV_Image_cut.jpg';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { profileDescription } from '../utils/constants';
+import Button from './elements/Button';
+import SVG from './elements/SVG';
+import linkedIn from '../public/linkedin.svg';
+import github from '../public/github.svg';
+import CV from '../public/CV.pdf';
 
 const ProfileCard = () => {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -33,23 +38,32 @@ const ProfileCard = () => {
         };
 
         const typingTimeout = setTimeout(handleTyping, speed);
-
         return () => clearTimeout(typingTimeout);
     }, [displayedText, isDeleting, speed, currentWordIndex]);
 
     return (
-        <div className='flex flex-col lg:flex-row justify-center items-center p-8 rounded-lg shadow-lg mx-auto lg:mt-[30px]'>
+        <div className='relative flex flex-col lg:flex-row justify-center items-center p-8 rounded-lg shadow-lg lg:mt-[30px]'>
+            <div className='relative flex justify-center items-center'>
+                <motion.div
+                    className='w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden shadow-[0_2px_20px_5px_rgba(20,83,45,0.8)] relative'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    <img src={profilePic} alt='No photo' className='w-full h-full object-cover' />
+                </motion.div>
+                <motion.div
+                    className='absolute left-[-60px] lg:left-[-80px] flex flex-col items-center space-y-5'
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                    <SVG link='https://www.linkedin.com/in/george-geru1099/' icon={linkedIn} />
+                    <SVG link='https://github.com/Ger1Git' icon={github} />
+                </motion.div>
+            </div>
             <motion.div
-                className='w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden shadow-[0_2px_20px_5px_rgba(20,83,45,0.8)] relative'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                <img src={profilePic} alt='No photo' className='w-full h-full object-cover' />
-            </motion.div>
-
-            <motion.div
-                className='mt-[20px] lg:ml-[40px] text-white text-center lg:text-left'
+                className='mt-[20px] lg:ml-[40px] text-center lg:text-left'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
@@ -60,6 +74,31 @@ const ProfileCard = () => {
                     <span className='text-[#00df9a]'>{displayedText}</span>
                     <span className='blinking-cursor'></span>
                 </h3>
+                <div className='hidden lg:flex my-[20px] lg:my-[40px] items-center gap-[30px]'>
+                    <Button
+                        onClickEvent={() => alert('Hire Me clicked!')}
+                        classes='relative cursor-pointer rounded-lg overflow-hidden glowButton glowShadow'
+                        text='Contact Me'
+                    />
+                    <Button
+                        href={CV}
+                        classes='relative whitespace-nowrap cursor-pointer rounded-lg border border-green-500 overflow-hidden'
+                        text='Download CV'
+                    />
+                </div>
+            </motion.div>
+            <motion.div
+                className='flex lg:hidden mt-[30px] lg:mt-0 lg:my-[40px] flex items-center gap-[30px]'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+            >
+                <Button
+                    onClickEvent={() => alert('Hire Me clicked!')}
+                    classes='relative cursor-pointer rounded-lg overflow-hidden glowButton glowShadow'
+                    text='Contact Me'
+                />
+                <Button href={CV} classes='relative whitespace-nowrap cursor-pointer rounded-lg border border-green-500 overflow-hidden' text='Download CV' />
             </motion.div>
         </div>
     );

@@ -64,16 +64,6 @@ const Navbar = () => {
                                 />
                             </li>
                         ))}
-                        <motion.li
-                            className='relative inline-flex items-center ml-[15px] cursor-pointer my-[7px] text-white rounded-lg overflow-hidden glowButton glowShadow'
-                            onClick={() => alert('Hire Me clicked!')}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <button type='button' className='relative z-10 px-4 py-2 whitespace-nowrap'>
-                                Hire Me
-                            </button>
-                        </motion.li>
                     </ul>
                     <div onClick={() => setNav((prevNav) => !prevNav)} className='block lg:hidden'>
                         {!nav && <AiOutlineMenu size={20} color={'#00df9a'} />}
