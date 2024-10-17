@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import PropTypes from 'prop-types';
 
-const InViewAnimatedHeader = () => {
+const StyledHeader = ({ text }) => {
     const { ref, inView } = useInView({
         threshold: 0.5,
         rootMargin: '0px 0px -10% 0px',
@@ -32,16 +33,20 @@ const InViewAnimatedHeader = () => {
     return (
         <div className='flex items-center justify-center'>
             <motion.h1
-                className='text-6xl font-bold text-green-400'
+                className='text-6xl font-bold text-[#2ecc71]'
                 ref={ref}
                 initial='hidden'
                 animate={inView ? 'visible' : 'hidden'}
                 variants={headerVariants}
             >
-                Skills
+                {text}
             </motion.h1>
         </div>
     );
 };
 
-export default InViewAnimatedHeader;
+StyledHeader.propTypes = {
+    text: PropTypes.string.isRequired
+};
+
+export default StyledHeader;

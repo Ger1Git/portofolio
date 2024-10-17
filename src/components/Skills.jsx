@@ -1,13 +1,15 @@
-import ComplexHeader from './Header';
+import StyledHeader from './StyledHeader';
 import ScrollAnimation from './SVGAnimatedScroll';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
     return (
-        <div className='text-center text-4xl text-white lg:my-[100px] mt-[40px]'>
-            <ComplexHeader />
+        <div className='text-center text-4xl text-white'>
+            <div className='lg:my-[100px] mt-[40px]'>
+                <StyledHeader text={'Skills'} />
+            </div>
             <ScrollAnimation />
-            <div className='relative w-full h-screen'>
+            <div className='block lg:hidden relative w-full h-screen'>
                 <div className='h-screen flex items-center justify-center'>
                     <motion.h1
                         className='text-3xl'

@@ -1,6 +1,8 @@
 import AboutMe from './components/AboutMe';
 import Navbar from './components/Navbar';
 import Skills from './components/Skills';
+import Career from './components/Career';
+import Projects from './components/Projects';
 
 function App() {
     return (
@@ -8,6 +10,8 @@ function App() {
             <Navbar />
             <AboutMe />
             <Skills />
+            <Career />
+            <Projects />
         </div>
     );
 }

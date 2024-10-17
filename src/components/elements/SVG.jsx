@@ -16,7 +16,7 @@ const SVG = ({ link, icon }) => {
 };
 
 SVG.propTypes = {
-    link: PropTypes.string,
+    link: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired
 };
 
