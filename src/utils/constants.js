@@ -1,4 +1,10 @@
-export const navigationLinks = ['About Me', 'Skills', 'Career', 'Projects', 'Contact'];
+export const navigationLinks = [
+    { text: 'About Me', id: 'about-me' },
+    { text: 'Skills', id: 'skills' },
+    { text: 'Career', id: 'career' },
+    { text: 'Projects', id: 'projects' },
+    { text: 'Contact', id: 'contact' }
+];
 export const profileDescription = ['Full Stack Developer💻', 'Snowboarder🏂', 'Footballer⚽', 'Traveller✈️', 'Gamer👾'];
 export const careerAchievements = [
     {

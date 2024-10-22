@@ -3,7 +3,7 @@ import StyledHeader from './StyledHeader';
 const Projects = () => {
     return (
         <div>
-            <div className='lg:my-[100px] mt-[40px]'>
+            <div className='mb-[50px]' id='projects'>
                 <StyledHeader text={'Projects'} />
             </div>
         </div>

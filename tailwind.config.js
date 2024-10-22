@@ -9,6 +9,9 @@ export default {
             },
             boxShadow: {
                 custom: '0px 4px 6px rgba(0, 0, 0, 0.25)'
+            },
+            scale: {
+                120: '1.20'
             }
         },
         keyframes: {

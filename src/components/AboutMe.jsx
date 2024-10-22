@@ -14,14 +14,14 @@ const AboutMe = () => {
     const lines = text.split('\n').filter((line) => line.trim() !== '');
 
     return (
-        <>
+        <div className='text-center text-xl text-white'>
             <ProfileCard />
-            <div className='text-center text-xl text-white px-[40px] lg:py-[20px]'>
+            <div className='px-[40px]'>
                 {lines.map((line, index) => (
                     <AnimatedLine key={index} line={line} index={index} />
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 

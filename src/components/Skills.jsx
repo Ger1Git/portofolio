@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 
 const Skills = () => {
     return (
-        <div className='text-center text-4xl text-white'>
-            <div className='lg:my-[100px] mt-[40px]'>
+        <div className='text-center text-4xl text-white' id='skills'>
+            <div className='mb-[50px] lg:mb-[100px]'>
                 <StyledHeader text={'Skills'} />
             </div>
             <ScrollAnimation />
-            <div className='block lg:hidden relative w-full h-screen'>
+            <div className='hidden lg:block relative w-full h-screen'>
                 <div className='h-screen flex items-center justify-center'>
                     <motion.h1
                         className='text-3xl'

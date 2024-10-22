@@ -1,12 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 import { navigationLinks } from '../utils/constants';
+import { animate } from 'framer-motion';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
     const [activeItem, setActiveItem] = useState(0);
     const [scrollDirection, setScrollDirection] = useState(null);
+    const navbarRef = useRef(null);
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const topPosition = element.offsetTop;
+            const navbarHeight = navbarRef.current.offsetHeight;
+            const adjustedPosition = sectionId === 'about-me' ? topPosition - navbarHeight : topPosition;
+
+            animate(window.scrollY, adjustedPosition, {
+                type: 'spring',
+                stiffness: 100,
+                damping: 20,
+                onUpdate: (latest) => window.scrollTo(0, latest)
+            });
+        }
+    };
 
     useEffect(() => {
         let lastScrollY = window.scrollY;
@@ -33,6 +51,7 @@ const Navbar = () => {
     return (
         <>
             <div
+                ref={navbarRef}
                 className={`sticky top-0 z-50 bg-black bg-opacity-80 transform transition-transform duration-300 ${
                     scrollDirection === 'down' || nav ? '-translate-y-full' : 'translate-y-0'
                 }`}
@@ -43,18 +62,21 @@ const Navbar = () => {
                     transition={{ type: 'tween', duration: 0.5 }}
                     className='flex justify-between items-center h-[50px] px-4 lg:h-24 lg:px-4 text-gray-500'
                 >
-                    <div className='text-white text-xl lg:text-3xl whitespace-nowrap'>
+                    <button className='text-white text-xl lg:text-3xl whitespace-nowrap' onClick={() => scrollToSection('about-me')}>
                         <span className='w-full font-bold'>George G</span>
                         <span className='text-[#00df9a] font-bold'>.</span>
-                    </div>
+                    </button>
                     <ul className='hidden lg:flex'>
-                        {navigationLinks.map((text, index) => (
+                        {navigationLinks.map((section, index) => (
                             <li
                                 key={index}
                                 className={`relative p-4 whitespace-nowrap cursor-pointer hover:text-white ${activeItem === index ? 'text-white' : ''}`}
-                                onClick={() => setActiveItem((prevItem) => (prevItem === index ? null : index))}
+                                onClick={() => {
+                                    setActiveItem(index);
+                                    scrollToSection(section.id);
+                                }}
                             >
-                                {text}
+                                {section.text}
                                 <motion.div
                                     className='absolute bottom-0 left-0 w-full h-[2px] bg-white origin-center'
                                     initial={{ scaleX: 0 }}
@@ -90,9 +112,16 @@ const Navbar = () => {
                     <h1>My Portfolio</h1>
                     <AiOutlineClose className='cursor-pointer text-white' size={24} onClick={() => setNav(false)} />
                 </div>
-                {navigationLinks.map((text, index) => (
-                    <li key={index} className='p-4 border-b text-white border-gray-600 text-left'>
-                        {text}
+                {navigationLinks.map((section, index) => (
+                    <li
+                        key={index}
+                        className='p-4 border-b text-white border-gray-600 text-left cursor-pointer'
+                        onClick={() => {
+                            setNav(false);
+                            scrollToSection(section.id);
+                        }}
+                    >
+                        {section.text}
                     </li>
                 ))}
             </motion.ul>

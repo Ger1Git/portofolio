@@ -4,7 +4,7 @@ import { careerAchievements } from '../utils/constants';
 
 const Career = () => {
     return (
-        <div className='lg:my-[100px] mt-[40px] bg-[#2b2b2b] py-[50px] relative z-0'>
+        <div className='bg-[#2b2b2b] py-[50px] relative z-0' id='career'>
             <StyledHeader text={'Career'} />
             <div className='text-center text-xl text-white px-[20px] mt-[50px] relative flex justify-center'>
                 <ul className='relative timeline mb-[50px]'>

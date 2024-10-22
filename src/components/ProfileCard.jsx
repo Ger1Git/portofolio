@@ -42,7 +42,7 @@ const ProfileCard = () => {
     }, [displayedText, isDeleting, speed, currentWordIndex]);
 
     return (
-        <div className='relative flex flex-col lg:flex-row justify-center items-center p-8 rounded-lg shadow-lg lg:mt-[30px]'>
+        <div className='relative flex flex-col lg:flex-row justify-center items-center p-8 rounded-lg shadow-lg' id='about-me'>
             <div className='relative flex justify-center items-center'>
                 <motion.div
                     className='w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden shadow-[0_2px_20px_5px_rgba(20,83,45,0.8)] relative'
