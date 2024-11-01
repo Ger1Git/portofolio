@@ -13,14 +13,14 @@ const Button = ({ onClickEvent, classes, text, href }) => {
                 whileHover={{ scale: 1.1 }}
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className='relative z-10 px-4 py-2 whitespace-nowrap'>{text}</div>
+                <div className='relative text-sm lg:text-xl z-10 px-4 py-2 whitespace-nowrap'>{text}</div>
             </motion.a>
         );
     }
 
     return (
         <motion.button className={`${classes}`} onClick={onClickEvent} whileTap={{ scale: 0.95 }} whileHover={{ scale: 1.1 }}>
-            <div className='relative z-10 px-4 py-2 whitespace-nowrap'>{text}</div>
+            <div className='relative text-sm lg:text-xl z-10 px-4 py-2 whitespace-nowrap'>{text}</div>
         </motion.button>
     );
 };

@@ -4,8 +4,8 @@ const CareerAchievement = ({ title, date, description, icon, index }) => {
     return (
         <>
             <div
-                className={`w-[40px] h-[40px] rounded-full bg-[#00bfa5] absolute left-[10px] right-auto top-[25px] lg:top-[35px] z-[20]
-                ${index % 2 === 0 ? 'lg:left-auto lg:right-[-20px]' : 'lg:right-auto lg:left-[-20px]'}`}
+                className={`w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] rounded-full bg-[#00bfa5] absolute left-[10px] right-auto top-[25px] lg:top-[35px] z-[20]
+                ${index % 2 === 0 ? 'lg:left-auto lg:right-[-30px]' : 'lg:right-auto lg:left-[-30px]'}`}
             >
                 <img src={icon} alt='no image' className='object-contain h-full w-full' />
             </div>

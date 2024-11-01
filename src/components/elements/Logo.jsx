@@ -1,21 +1,24 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
-const Logo = ({ icon, text, width, height, right, isHoverDisabled, isRotating }) => {
+const Logo = ({ icon, text, width, height, right, isHoverDisabled, isRotating, hasBackground }) => {
     return (
-        <motion.div className='relative z-10 flex justify-center items-center left-[2px]' whileHover={isHoverDisabled ? undefined : { scale: 1.2 }}>
+        <motion.div
+            className={`relative z-10 flex justify-center items-center left-[2px] ${hasBackground ? 'bg-white p-2 rounded-full' : ''}`}
+            whileHover={isHoverDisabled ? undefined : { scale: 1.2 }}
+        >
             <motion.img
                 src={icon}
                 alt='icon'
                 style={{ width: `${width}px`, height: `${height}px` }}
                 className='filter drop-shadow-lg shadow-green-500'
-                animate={isRotating ? { rotate: 360 } : {}} // Rotate only if isRotating is true
+                animate={isRotating ? { rotate: 360 } : {}}
                 transition={{
-                    duration: 3, // Duration for rotation
+                    duration: 3,
                     ease: 'linear',
-                    repeat: isRotating ? Infinity : 0 // Repeat if rotating
+                    repeat: isRotating ? Infinity : 0
                 }}
-                whileHover={isHoverDisabled ? undefined : { scale: 1.2 }} // Scale on hover
+                whileHover={isHoverDisabled ? undefined : { scale: 1.2 }}
             />
             <div className='absolute top-[30%] text-xl text-white' style={{ right: `${right}px` }}>
                 {text}
@@ -31,7 +34,8 @@ Logo.propTypes = {
     text: PropTypes.string,
     right: PropTypes.number,
     isHoverDisabled: PropTypes.bool,
-    isRotating: PropTypes.bool
+    isRotating: PropTypes.bool,
+    hasBackground: PropTypes.bool
 };
 
 export default Logo;

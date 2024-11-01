@@ -8,6 +8,7 @@ const ContactForm = () => {
         companyName: '',
         email: '',
         offer: '',
+        currency: 'RON',
         jobDescription: '',
         message: ''
     });
@@ -23,18 +24,18 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const serviceID = 'service_vikwhua';
-        const templateID = 'zabkpdqsoxjimtsl';
+        const serviceID = 'service_piytzuf';
+        const templateID = 'template_souzf62';
         const userID = '9Z_Ibgmbvl-FXfXQa';
 
         try {
-            const response = await emailjs.send(serviceID, templateID, formData, userID);
-            console.log(response);
+            await emailjs.send(serviceID, templateID, formData, userID);
 
             setFormData({
                 companyName: '',
                 email: '',
                 offer: '',
+                currency: formData.currency,
                 jobDescription: '',
                 message: ''
             });
@@ -52,7 +53,14 @@ const ContactForm = () => {
                 <div className='mt-8 flex flex-col gap-[10px]'>
                     <FloatingLabelInput type='text' name='companyName' placeholder='Company Name' value={formData.companyName} onChange={handleChange} />
                     <FloatingLabelInput type='email' name='email' placeholder='Email' value={formData.email} onChange={handleChange} />
-                    <FloatingLabelInput type='text' name='offer' placeholder='Offer' value={formData.offer} onChange={handleChange} />
+                    <FloatingLabelInput
+                        type='text'
+                        name='offer'
+                        placeholder='Offer'
+                        value={formData.offer}
+                        selectvalue={formData.currency}
+                        onChange={handleChange}
+                    />
                     <FloatingLabelInput
                         type='text'
                         isTextArea={true}

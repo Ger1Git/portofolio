@@ -88,59 +88,46 @@ const SVGAnimatedScroll = () => {
                 </div>
                 <div className='h-[300px] flex justify-center items-center lg:hidden bg-[#000300] text-green-500 text-4xl rotate-[-90deg]'>Frontend</div>
                 <div className='h-[200px] flex items-center relative flex-col w-[100%]'>
-                    <div className='relative z-10 rounded-full bg-white p-2 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={react} text={'React'} width={50} height={50} right={-70} isHoverDisabled={true} isRotating={true} />
+                    <div className='relative z-10 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
+                        <Logo icon={react} text={'React'} width={50} height={50} right={-70} isHoverDisabled={true} isRotating={true} hasBackground={true} />
                     </div>
-                    {/* <div className='absolute z-30 flex flex-col h-full left-[20px]'>
-                        <div className='text-xl'>Frameworks</div>
-                        <div className='flex flex-col justify-around h-[100%]'>
-                            <div ref={logoRefTailwind} className='top-[-110px] left-[-140px] flex flex-col items-center text-xl'>
-                                <Logo icon={tailwind} width={60} height={60} right={-200} />
-                                Tailwind
-                            </div>
-                            <div ref={logoRefBootstrap} className='top-[-110px] left-[-140px] flex flex-col items-center text-xl'>
-                                <Logo icon={bootstrap} width={60} height={60} right={-200} />
-                                Bootstrap
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
                 <div className='h-[200px] flex z-10 justify-center items-start'>
                     <Logo icon={angular} text={'Angular'} width={60} height={60} right={-80} />
                 </div>
                 <div className='h-[100px] flex z-10 justify-center items-start'>
-                    <div className='relative z-10 rounded-full bg-white p-2 flex justify-center items-start group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={jQuery} text={'jQuery'} width={50} height={50} right={-80} isHoverDisabled={true} />
+                    <div className='relative z-10 flex justify-center items-start group hover:scale-120  transition-all duration-300'>
+                        <Logo icon={jQuery} text={'jQuery'} width={50} height={50} right={-80} isHoverDisabled={true} hasBackground={true} />
                     </div>
                 </div>
                 <div className='h-[300px] flex justify-center items-center lg:hidden bg-[#000300] text-green-500 text-4xl rotate-[-90deg]'>Backend</div>
                 <div className='h-[200px] flex items-center relative flex-col'>
-                    <div className='relative z-10 rounded-full bg-white p-2 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={nodejs} text={'NodeJS'} width={50} height={50} right={-80} isHoverDisabled={true} />
+                    <div className='relative z-10 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
+                        <Logo icon={nodejs} text={'NodeJS'} width={50} height={50} right={-80} isHoverDisabled={true} hasBackground={true} />
                     </div>
                 </div>
                 <div className='h-[100px] flex z-10 items-start'>
-                    <div className='relative z-10 rounded-full bg-white p-2 flex justify-center items-start group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={expressjs} text={'Express.js'} width={50} height={50} right={-100} isHoverDisabled={true} />
+                    <div className='relative z-10 flex justify-center items-start group hover:scale-120  transition-all duration-300'>
+                        <Logo icon={expressjs} text={'Express.js'} width={50} height={50} right={-100} isHoverDisabled={true} hasBackground={true} />
                     </div>
                 </div>
                 <div className='h-[300px] flex justify-center items-center lg:hidden bg-[#000300] text-green-500 text-4xl rotate-[-90deg]'>Databases</div>
                 <div className='h-[200px] flex items-center relative flex-col'>
-                    <div className='relative z-10 rounded-full bg-white p-2 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={mongoDb} text={'MongoDB'} width={50} height={50} right={-110} isHoverDisabled={true} />
+                    <div className='relative z-10 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
+                        <Logo icon={mongoDb} text={'MongoDB'} width={50} height={50} right={-110} isHoverDisabled={true} hasBackground={true} />
                     </div>
                 </div>
                 <div className='h-[200px] flex z-10 justify-center items-start'>
-                    <div className='relative z-10 rounded-full bg-white p-1 flex justify-center items-start group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={mysql} text={'MySQL'} width={60} height={60} right={-80} isHoverDisabled={true} />
+                    <div className='relative z-10  flex justify-center items-start group hover:scale-120  transition-all duration-300'>
+                        <Logo icon={mysql} text={'MySQL'} width={60} height={60} right={-80} isHoverDisabled={true} hasBackground={true} />
                     </div>
                 </div>
                 <div className='h-[200px] flex justify-center items-center lg:hidden bg-[#000300] text-green-500 text-4xl rotate-[-90deg] text-nowrap'>
                     Version control
                 </div>
                 <div className='h-[200px] flex justify-end items-center relative flex-col'>
-                    <div className='relative z-10 rounded-full bg-white p-2 flex justify-center items-center group hover:scale-120 transition-all duration-300 '>
-                        <Logo icon={git} text={'Git'} width={50} height={50} right={-50} isHoverDisabled={true} />
+                    <div className='relative z-10 flex justify-center items-center group hover:scale-120 transition-all duration-300 '>
+                        <Logo icon={git} text={'Git'} width={50} height={50} right={-50} isHoverDisabled={true} hasBackground={true} />
                     </div>
                 </div>
             </div>
