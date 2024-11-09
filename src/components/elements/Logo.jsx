@@ -1,11 +1,25 @@
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
-const Logo = ({ icon, text, width, height, right, isHoverDisabled, isRotating, hasBackground }) => {
+const Logo = ({ icon, text, width, height, right, isHoverDisabled, isRotating, hasBackground, scaleAnimationStart }) => {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: [`${scaleAnimationStart} end`, 'end start']
+    });
+
+    const scaleProgress = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+
     return (
         <motion.div
             className={`relative z-10 flex justify-center items-center left-[2px] ${hasBackground ? 'bg-white p-2 rounded-full' : ''}`}
             whileHover={isHoverDisabled ? undefined : { scale: 1.2 }}
+            ref={ref}
+            style={{
+                scale: scaleProgress,
+                transition: 'all 0.2s ease-out'
+            }}
         >
             <motion.img
                 src={icon}
@@ -35,7 +49,8 @@ Logo.propTypes = {
     right: PropTypes.number,
     isHoverDisabled: PropTypes.bool,
     isRotating: PropTypes.bool,
-    hasBackground: PropTypes.bool
+    hasBackground: PropTypes.bool,
+    scaleAnimationStart: PropTypes.string
 };
 
 export default Logo;

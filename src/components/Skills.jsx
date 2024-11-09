@@ -1,5 +1,6 @@
 import StyledHeader from './StyledHeader';
 import ScrollAnimation from './SVGAnimatedScroll';
+// import ScrollAnimationDesktop from './elements/ScrollAnimationDesktop';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
@@ -9,6 +10,7 @@ const Skills = () => {
                 <StyledHeader text={'Skills'} />
             </div>
             <ScrollAnimation />
+            {/* <ScrollAnimationDesktop /> */}
             <div className='absolute bottom-[-50px] hidden lg:flex items-center justify-center z-10 w-full'>
                 <motion.h1
                     className='text-3xl'

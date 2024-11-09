@@ -46,7 +46,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className='flex flex-col items-center justify-center mb-[50px] lg:mb-[100px]' id='contact'>
+        <div className='flex flex-col items-center justify-center mb-[50px] lg:mb-[100px] px-4' id='contact'>
             <form onSubmit={handleSubmit} className='bg-white/10 border border-white/20 backdrop-blur-md text-white rounded-lg p-8 w-full max-w-sm'>
                 <StyledHeader text={'Contact'} />
 

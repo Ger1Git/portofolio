@@ -1,43 +1,29 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const StyledHeader = ({ text }) => {
-    const { ref, inView } = useInView({
-        threshold: 0.5,
-        rootMargin: '0px 0px -10% 0px',
-        triggerOnce: true
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['start end', 'end start']
     });
 
-    const headerVariants = {
-        hidden: {
-            opacity: 0,
-            y: -50,
-            scale: 0.5,
-            rotate: -15
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotate: 0,
-            transition: {
-                duration: 1.5,
-                type: 'spring',
-                stiffness: 100,
-                damping: 12
-            }
-        }
-    };
+    const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+    const scaleProgress = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+    const rotateProgress = useTransform(scrollYProgress, [0, 0.3], [-45, 0]);
 
     return (
         <div className='flex items-center justify-center'>
             <motion.h1
                 className='text-6xl font-bold text-[#2ecc71]'
                 ref={ref}
-                initial='hidden'
-                animate={inView ? 'visible' : 'hidden'}
-                variants={headerVariants}
+                style={{
+                    opacity: opacityProgress,
+                    scale: scaleProgress,
+                    rotate: rotateProgress,
+                    transition: 'all 0.2s ease-out'
+                }}
             >
                 {text}
             </motion.h1>

@@ -27,7 +27,7 @@ const Career = () => {
                     />
 
                     {careerAchievements.map((details, index) => (
-                        <FadeInOnScroll key={index}>
+                        <FadeInOnScroll key={index} startOfAnimation={`${index * 50}%`}>
                             <li
                                 className={`w-full lg:w-1/2 pr-[25px] pl-[70px] lg:py-[10px] lg:px-[50px] relative ${
                                     index % 2 === 0 ? 'left-0' : 'lg:left-1/2'

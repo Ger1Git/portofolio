@@ -50,7 +50,7 @@ const Projects = () => {
         <div className='flex flex-col items-center' id='projects'>
             <StyledHeader text={'Projects'} />
 
-            <div className='relative w-full mx-auto px-4 pt-16'>
+            <div className='relative w-full mx-auto pt-16'>
                 <Swiper
                     effect={'coverflow'}
                     grabCursor={true}
@@ -82,7 +82,7 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <SwiperSlide
                             key={index}
-                            className='flex flex-col items-center justify-center relative w-[370px] h-[420px] sm:w-[280px] sm:h-[360px] rounded-2xl bg-gray-700/40 shadow-md overflow-hidden'
+                            className='flex flex-col items-center justify-center relative w-[280px] h-[420px] rounded-2xl bg-gray-700/40 shadow-md overflow-hidden'
                         >
                             <div className='h-1/2 w-full'>
                                 <img src={project.image} alt='project_image' className='w-full h-full object-cover' />
@@ -94,8 +94,8 @@ const Projects = () => {
                         </SwiperSlide>
                     ))}
 
-                    <div className='swiper-button-prev absolute top-1/2 left-0 z-10 w-[70px] h-[70px] flex items-center justify-center text-white rounded-full shadow-md cursor-pointer hover:bg-gray-700 transition'></div>
-                    <div className='swiper-button-next absolute top-1/2 right-0 z-10 w-[70px] h-[70px] flex items-center justify-center text-white rounded-full shadow-md cursor-pointer hover:bg-gray-700 transition'></div>
+                    <div className='swiper-button-prev hidden absolute top-1/2 left-0 z-10 w-[70px] h-[70px] lg:flex items-center justify-center text-white rounded-full shadow-md cursor-pointer hover:bg-gray-700 transition'></div>
+                    <div className='swiper-button-next hidden absolute top-1/2 right-0 z-10 w-[70px] h-[70px] lg:flex items-center justify-center text-white rounded-full shadow-md cursor-pointer hover:bg-gray-700 transition'></div>
                 </Swiper>
 
                 <div className='swiper-pagination flex justify-center mt-4 space-x-2 relative z-10'></div>
@@ -112,6 +112,7 @@ const Projects = () => {
                                     height={40}
                                     isRotating={techIcons[tech].isRotating}
                                     hasBackground={techIcons[tech].hasBackground}
+                                    scaleAnimationStart={'-100%'}
                                 />
                                 <span className='text-sm text-center mt-2'>{tech}</span>
                             </div>

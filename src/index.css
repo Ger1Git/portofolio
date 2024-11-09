@@ -5,6 +5,29 @@
 body {
     background-color: #000300;
 }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: gray transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #a9a9a9;
+}
+
 .glowButton {
     @apply border-none outline-none cursor-pointer bg-[#125c29] relative z-0 rounded-lg transition-all duration-300;
     box-shadow: 0 0 5px #125c29, 0 0 25px #125c29, 0 0 50px #125c29, 0 0 200px #125c29;

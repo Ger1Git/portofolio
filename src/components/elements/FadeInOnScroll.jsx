@@ -2,21 +2,19 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const FadeInOnScroll = ({ children }) => {
+const FadeInOnScroll = ({ children, startOfAnimation }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['20% end', 'end start']
+        offset: [`${startOfAnimation} end`, 'end start']
     });
-    const opacityProgress = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-    const scaleProgress = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
+    const opacityProgress = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
     return (
         <motion.div
             ref={ref}
             style={{
                 opacity: opacityProgress,
-                scale: scaleProgress,
                 transition: 'all 0.2s ease-out'
             }}
         >
@@ -26,7 +24,8 @@ const FadeInOnScroll = ({ children }) => {
 };
 
 FadeInOnScroll.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    startOfAnimation: PropTypes.string
 };
 
 export default FadeInOnScroll;
