@@ -1,30 +1,14 @@
-import StyledHeader from './StyledHeader';
 import ScrollAnimation from './SVGAnimatedScroll';
-// import ScrollAnimationDesktop from './elements/ScrollAnimationDesktop';
-import { motion } from 'framer-motion';
+import ScrollAnimationDesktop from './ScrollAnimationDesktop';
 
 const Skills = () => {
     return (
-        <div className='text-center text-4xl text-white relative' id='skills'>
-            <div className='mb-[50px] lg:mb-[100px]'>
-                <StyledHeader text={'Skills'} />
+        <div className='text-center text-4xl text-white  relative lg:flex justify-center' id='skills'>
+            <div className='lg:hidden'>
+                <ScrollAnimation />
             </div>
-            <ScrollAnimation />
-            {/* <ScrollAnimationDesktop /> */}
-            <div className='absolute bottom-[-50px] hidden lg:flex items-center justify-center z-10 w-full'>
-                <motion.h1
-                    className='text-3xl'
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: [1, 0.5, 1] }}
-                    transition={{
-                        duration: 1,
-                        ease: 'easeInOut',
-                        repeat: Infinity,
-                        repeatType: 'loop'
-                    }}
-                >
-                    Scroll Down
-                </motion.h1>
+            <div className='hidden lg:block h-[2000px] w-[95%]'>
+                <ScrollAnimationDesktop />
             </div>
         </div>
     );

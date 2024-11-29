@@ -106,16 +106,16 @@ const Navbar = () => {
                 initial={{ x: '100%' }}
                 animate={{ x: nav ? '0%' : '100%' }}
                 transition={{ type: 'tween', duration: 0.3 }}
-                className='fixed top-0 right-0 w-[60%] h-full border-l border-l-gray-900 bg-[#000300] shadow-xl shadow-gray-700 z-20'
+                className='fixed top-0 right-0 w-[60%] h-full border-l border-l-gray-900 bg-[#000300] shadow-xl shadow-gray-700 z-20 '
             >
-                <div className='flex justify-between items-center w-full text-3xl font-bold text-[#00df9a] p-4'>
+                <div className='flex justify-between items-center w-full text-xl lg:text-3xl font-bold text-[#00df9a] p-4'>
                     <h1>My Portfolio</h1>
                     <AiOutlineClose className='cursor-pointer text-white' size={24} onClick={() => setNav(false)} />
                 </div>
                 {navigationLinks.map((section, index) => (
                     <li
                         key={index}
-                        className='p-4 border-b text-white border-gray-600 text-left cursor-pointer'
+                        className='p-4 border-b text-white border-gray-600 text-left cursor-pointer text-sm'
                         onClick={() => {
                             setNav(false);
                             scrollToSection(section.id);

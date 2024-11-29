@@ -14,7 +14,7 @@ const Career = () => {
     const lineHeight = useTransform(scrollYProgress, [0, 0.7], ['0%', '100%']);
 
     return (
-        <div className='bg-[#2b2b2b] py-[50px] relative z-0' id='career'>
+        <div className='bg-[#2b2b2b] py-[50px] relative z-0 lg:-mt-[100px]' id='career'>
             <StyledHeader text={'Career'} />
 
             <div className='text-center text-xl text-white px-[20px] mt-[50px] relative flex justify-center'>
@@ -29,7 +29,7 @@ const Career = () => {
                     {careerAchievements.map((details, index) => (
                         <FadeInOnScroll key={index} startOfAnimation={`${index * 50}%`}>
                             <li
-                                className={`w-full lg:w-1/2 pr-[25px] pl-[70px] lg:py-[10px] lg:px-[50px] relative ${
+                                className={`w-full lg:w-1/2 pr-[25px] pl-[70px] lg:py-[20px] lg:px-[50px] relative ${
                                     index % 2 === 0 ? 'left-0' : 'lg:left-1/2'
                                 } ${index === 0 ? 'mb-[50px]' : index === careerAchievements.length - 1 ? 'mt-[50px]' : 'my-[50px]'}`}
                             >

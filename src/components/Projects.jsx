@@ -102,14 +102,14 @@ const Projects = () => {
 
                 <div className='flex flex-col lg:flex-row lg:flex-wrap items-center justify-center mt-4 gap-[20px]'>
                     <span className='mr-2 font-semibold text-xl'>Technologies used:</span>
-                    <div className='flex flex-row flex-wrap items-center justify-center gap-[20px]'>
+                    <div className='flex flex-row flex-wrap items-center justify-center gap-[20px] w-[90%]'>
                         {projects[activeIndex]?.technologies.map((tech) => (
                             <div key={tech} className='flex flex-col items-center'>
                                 <Logo
                                     key={tech}
                                     icon={techIcons[tech].icon}
-                                    width={40}
-                                    height={40}
+                                    width={techIcons[tech].hasBackground ? 24 : 40}
+                                    height={techIcons[tech].hasBackground ? 24 : 40}
                                     isRotating={techIcons[tech].isRotating}
                                     hasBackground={techIcons[tech].hasBackground}
                                     scaleAnimationStart={'-100%'}

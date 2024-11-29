@@ -56,7 +56,7 @@ const FloatingLabelInput = ({ type, name, placeholder, value, selectvalue, onCha
                 htmlFor={name}
                 className={`absolute left-4 top-1 bg-[#1a1d1a] text-white transition-all duration-300 transform text-md px-[2px]
             ${value ? '-translate-y-4' : 'translate-y-2'}
-            peer-placeholder-shown:translate-y-1 peer-focus:-translate-y-4`}
+            peer-placeholder-shown:translate-y-1 peer-focus:-translate-y-5`}
             >
                 {placeholder}
             </label>

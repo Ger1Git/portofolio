@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-const Logo = ({ icon, text, width, height, right, isHoverDisabled, isRotating, hasBackground, scaleAnimationStart }) => {
+const Logo = ({ icon, text, width, height, right, isRotating, hasBackground, scaleAnimationStart }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -13,8 +13,7 @@ const Logo = ({ icon, text, width, height, right, isHoverDisabled, isRotating, h
 
     return (
         <motion.div
-            className={`relative z-10 flex justify-center items-center left-[2px] ${hasBackground ? 'bg-white p-2 rounded-full' : ''}`}
-            whileHover={isHoverDisabled ? undefined : { scale: 1.2 }}
+            className={`relative z-10 flex justify-center items-center left-[2px] lg:left-0 ${hasBackground ? 'bg-white p-2 rounded-full' : ''}`}
             ref={ref}
             style={{
                 scale: scaleProgress,
@@ -25,14 +24,13 @@ const Logo = ({ icon, text, width, height, right, isHoverDisabled, isRotating, h
                 src={icon}
                 alt='icon'
                 style={{ width: `${width}px`, height: `${height}px` }}
-                className='filter drop-shadow-lg shadow-green-500'
+                className='filter drop-shadow-lg shadow-green-500 '
                 animate={isRotating ? { rotate: 360 } : {}}
                 transition={{
                     duration: 3,
                     ease: 'linear',
                     repeat: isRotating ? Infinity : 0
                 }}
-                whileHover={isHoverDisabled ? undefined : { scale: 1.2 }}
             />
             <div className='absolute top-[30%] text-xl text-white' style={{ right: `${right}px` }}>
                 {text}
@@ -47,7 +45,6 @@ Logo.propTypes = {
     icon: PropTypes.string.isRequired,
     text: PropTypes.string,
     right: PropTypes.number,
-    isHoverDisabled: PropTypes.bool,
     isRotating: PropTypes.bool,
     hasBackground: PropTypes.bool,
     scaleAnimationStart: PropTypes.string
