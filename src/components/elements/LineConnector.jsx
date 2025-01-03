@@ -1,52 +1,88 @@
-import { useEffect, useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-const LineConnector = ({ firstElementRef, secondElementRef }) => {
+const LineConnector = ({ divAId, divBId, parentRef }) => {
     const [pathData, setPathData] = useState('');
+    const svgRef = useRef(null);
+    const isInView = useInView(svgRef, { once: true });
 
-    const updatePath = useCallback(() => {
-        if (!firstElementRef.current || !secondElementRef.current) return;
-        const firstElementBox = firstElementRef.current.getBoundingClientRect();
-        const secondElementBox = secondElementRef.current.getBoundingClientRect();
-        const startX = firstElementBox.right;
-        const startY = firstElementBox.top + firstElementBox.height / 2;
-        const endX = secondElementBox.left;
-        const endY = secondElementBox.top + secondElementBox.height / 2;
-        const controlPointX1 = startX + 50;
-        const controlPointY1 = startY;
-        const controlPointX2 = endX - 50;
-        const controlPointY2 = endY;
+    const { scrollYProgress } = useScroll({
+        container: parentRef.current,
+        target: svgRef,
+        offset: ['start end', 'end start']
+    });
 
-        const newPathData = `M ${startX},${startY} C ${controlPointX1},${controlPointY1} ${controlPointX2},${controlPointY2} ${endX},${endY}`;
-        setPathData(newPathData);
-    }, [firstElementRef, secondElementRef]);
+    const pathLength = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
 
     useEffect(() => {
-        updatePath();
+        if (!isInView) return;
 
-        window.addEventListener('resize', updatePath);
+        const updatePathData = () => {
+            const divA = document.getElementById(divAId);
+            const divB = document.getElementById(divBId);
+
+            if (divA && divB) {
+                const rectA = divA.getBoundingClientRect();
+                const rectB = divB.getBoundingClientRect();
+
+                // Coordinates for divB (start point)
+                const x1 = rectB.left + rectB.width / 2;
+                const y1 = rectB.top + rectB.height / 2;
+
+                // Coordinates for divA (end point)
+                const x2 = rectA.left + rectA.width / 2;
+                const y2 = rectA.top + rectA.height / 2;
+
+                // Calculate control points for the curve
+                const controlX1 = x1 + 100; // Curve out from divB
+                const controlX2 = x2 - 100; // Curve into divA
+
+                // Create the cubic Bezier path
+                const path = `M ${x1} ${y1} C ${controlX1} ${y1}, ${controlX2} ${y2}, ${x2} ${y2}`;
+                setPathData(path);
+            }
+        };
+
+        updatePathData();
+        window.addEventListener('resize', updatePathData);
 
         return () => {
-            window.removeEventListener('resize', updatePath);
+            window.removeEventListener('resize', updatePathData);
         };
-    }, [updatePath]);
+    }, [isInView, divAId, divBId]);
 
     return (
         <motion.svg
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, ease: 'easeInOut' }}
+            ref={svgRef}
+            style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                pointerEvents: 'none',
+                width: '100%',
+                height: '100%'
+            }}
         >
-            <motion.path d={pathData} fill='none' stroke='green' strokeWidth='2' />
+            {isInView && pathData && (
+                <motion.path
+                    d={pathData}
+                    stroke='#2ecc71'
+                    fill='none'
+                    strokeWidth='3'
+                    style={{
+                        pathLength: pathLength
+                    }}
+                />
+            )}
         </motion.svg>
     );
 };
 
 LineConnector.propTypes = {
-    firstElementRef: PropTypes.object.isRequired,
-    secondElementRef: PropTypes.object.isRequired
+    divAId: PropTypes.string.isRequired,
+    divBId: PropTypes.string.isRequired,
+    parentRef: PropTypes.object
 };
 
 export default LineConnector;

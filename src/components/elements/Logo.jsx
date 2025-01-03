@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-const Logo = ({ icon, text, width, height, right, isRotating, hasBackground, scaleAnimationStart }) => {
+const Logo = ({ icon, id, text, width, height, right, isRotating, hasBackground, scaleAnimationStart }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -14,6 +14,7 @@ const Logo = ({ icon, text, width, height, right, isRotating, hasBackground, sca
     return (
         <motion.div
             className={`relative z-10 flex justify-center items-center left-[2px] lg:left-0 ${hasBackground ? 'bg-white p-2 rounded-full' : ''}`}
+            id={id}
             ref={ref}
             style={{
                 scale: scaleProgress,
@@ -43,6 +44,7 @@ Logo.propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     icon: PropTypes.string.isRequired,
+    id: PropTypes.string,
     text: PropTypes.string,
     right: PropTypes.number,
     isRotating: PropTypes.bool,
