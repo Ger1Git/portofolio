@@ -38,7 +38,7 @@ const SVGAnimatedScroll = () => {
     ];
 
     const frontendLogos = [
-        { icon: react, label: 'React', isRotating: true },
+        { icon: react, label: 'React' },
         { icon: angular, label: 'Angular' },
         { icon: jQuery, label: 'jQuery' }
     ];
@@ -80,7 +80,7 @@ const SVGAnimatedScroll = () => {
                         </motion.span>
                         {markupLogos.map(({ icon, label }) => (
                             <div key={label} className='flex flex-col gap-[10px]'>
-                                <Logo icon={icon} width={60} height={60} right={-70} scaleAnimationStart={'400%'} />
+                                <Logo icon={icon} right={-70} scaleAnimationStart={'400%'} />
                                 <motion.span
                                     className='text-xl'
                                     style={{
@@ -114,7 +114,7 @@ const SVGAnimatedScroll = () => {
                         </motion.span>
                         {databasesLogos.map(({ icon, label }) => (
                             <div key={label} className='flex flex-col gap-[10px] items-center'>
-                                <Logo icon={icon} width={45} height={45} hasBackground={true} scaleAnimationStart={'400%'} />
+                                <Logo icon={icon} hasBackground={true} scaleAnimationStart={'400%'} />
                                 <motion.span
                                     className='text-xl'
                                     style={{
@@ -132,26 +132,18 @@ const SVGAnimatedScroll = () => {
 
             <div className='flex-1 w-full flex gap-[50px]'>
                 <div className='flex flex-col flex-1 gap-[50px] justify-center'>
-                    {frontendLogos.map(({ icon, label, isRotating }, index) => (
+                    {frontendLogos.map(({ icon, label }, index) => (
                         <>
                             <div key={label} className='flex flex-col gap-[5px] items-center'>
-                                <Logo
-                                    icon={icon}
-                                    id={label}
-                                    width={60}
-                                    height={60}
-                                    hasBackground={true}
-                                    scaleAnimationStart={`${0 - index * 50}%`}
-                                    isRotating={isRotating}
-                                />
+                                <Logo icon={icon} id={label} hasBackground={true} scaleAnimationStart={`${0 - index * 50}%`} />
                                 <motion.span className='text-xl'>{label}</motion.span>
                             </div>
-                            <LineConnector divAId={label} divBId='JavaScript' parentRef={ref} />
+                            <LineConnector divAId='JavaScript' divBId={label} scaleAnimationStart={`${0 - index * 25}%`} />
                         </>
                     ))}
                 </div>
                 <div className='flex justify-center items-center flex-col flex-none'>
-                    <div className='relative'>
+                    <div className='relative z-10'>
                         <motion.div
                             initial={{ opacity: 1 }}
                             animate={{ opacity: [1, 0] }}
@@ -161,7 +153,7 @@ const SVGAnimatedScroll = () => {
                                 repeatType: 'mirror'
                             }}
                         >
-                            <Logo id='JavaScript' icon={javascript} width={75} height={75} scaleAnimationStart={'200%'} />
+                            <Logo id='JavaScript' icon={javascript} scaleAnimationStart={'50%'} />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -173,7 +165,7 @@ const SVGAnimatedScroll = () => {
                             }}
                             style={{ position: 'absolute', top: 0, left: 0 }}
                         >
-                            <Logo icon={typescript} width={75} height={75} scaleAnimationStart={'200%'} />
+                            <Logo icon={typescript} scaleAnimationStart={'50%'} />
                         </motion.div>
                     </div>
                     <motion.div
@@ -187,11 +179,14 @@ const SVGAnimatedScroll = () => {
                     </motion.div>
                 </div>
                 <div className='flex flex-col flex-1 gap-[50px] justify-center'>
-                    {backendLogos.map(({ icon, label }) => (
-                        <div key={label} className='flex flex-col gap-[5px] items-center relative'>
-                            <Logo icon={icon} width={60} height={60} hasBackground={true} scaleAnimationStart={'50%'} />
-                            <motion.span className='text-xl'>{label}</motion.span>
-                        </div>
+                    {backendLogos.map(({ icon, label }, index) => (
+                        <>
+                            <div key={label} className='flex flex-col gap-[5px] items-center'>
+                                <Logo icon={icon} id={label} hasBackground={true} scaleAnimationStart={`${0 - index * 50}%`} />
+                                <motion.span className='text-xl'>{label}</motion.span>
+                            </div>
+                            <LineConnector divAId='JavaScript' divBId={label} scaleAnimationStart={`${-100 - index * 25}%`} />
+                        </>
                     ))}
                 </div>
             </div>

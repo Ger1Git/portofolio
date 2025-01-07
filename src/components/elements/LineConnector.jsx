@@ -1,88 +1,34 @@
-import { useEffect, useState, useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import Xarrow from 'react-xarrows';
 import PropTypes from 'prop-types';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
-const LineConnector = ({ divAId, divBId, parentRef }) => {
-    const [pathData, setPathData] = useState('');
-    const svgRef = useRef(null);
-    const isInView = useInView(svgRef, { once: true });
-
+const LineConnector = ({ divAId, divBId, scaleAnimationStart }) => {
+    const ref = useRef(null);
     const { scrollYProgress } = useScroll({
-        container: parentRef.current,
-        target: svgRef,
-        offset: ['start end', 'end start']
+        target: ref,
+        offset: ['20% end', 'end start']
     });
 
-    const pathLength = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
-
-    useEffect(() => {
-        if (!isInView) return;
-
-        const updatePathData = () => {
-            const divA = document.getElementById(divAId);
-            const divB = document.getElementById(divBId);
-
-            if (divA && divB) {
-                const rectA = divA.getBoundingClientRect();
-                const rectB = divB.getBoundingClientRect();
-
-                // Coordinates for divB (start point)
-                const x1 = rectB.left + rectB.width / 2;
-                const y1 = rectB.top + rectB.height / 2;
-
-                // Coordinates for divA (end point)
-                const x2 = rectA.left + rectA.width / 2;
-                const y2 = rectA.top + rectA.height / 2;
-
-                // Calculate control points for the curve
-                const controlX1 = x1 + 100; // Curve out from divB
-                const controlX2 = x2 - 100; // Curve into divA
-
-                // Create the cubic Bezier path
-                const path = `M ${x1} ${y1} C ${controlX1} ${y1}, ${controlX2} ${y2}, ${x2} ${y2}`;
-                setPathData(path);
-            }
-        };
-
-        updatePathData();
-        window.addEventListener('resize', updatePathData);
-
-        return () => {
-            window.removeEventListener('resize', updatePathData);
-        };
-    }, [isInView, divAId, divBId]);
+    const opacity = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
 
     return (
-        <motion.svg
-            ref={svgRef}
+        <motion.div
+            ref={ref}
             style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                pointerEvents: 'none',
-                width: '100%',
-                height: '100%'
+                opacity,
+                transition: 'all 0.2s ease-out'
             }}
         >
-            {isInView && pathData && (
-                <motion.path
-                    d={pathData}
-                    stroke='#2ecc71'
-                    fill='none'
-                    strokeWidth='3'
-                    style={{
-                        pathLength: pathLength
-                    }}
-                />
-            )}
-        </motion.svg>
+            <Xarrow start={divAId} end={divBId} color='#2ecc71' curveness='0.5' strokeWidth={3} headSize={0} endAnchor='middle' tailSize={0} path='smooth' />
+        </motion.div>
     );
 };
 
 LineConnector.propTypes = {
     divAId: PropTypes.string.isRequired,
     divBId: PropTypes.string.isRequired,
-    parentRef: PropTypes.object
+    scaleAnimationStart: PropTypes.string
 };
 
 export default LineConnector;

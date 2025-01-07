@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-const Logo = ({ icon, id, text, width, height, right, isRotating, hasBackground, scaleAnimationStart }) => {
+const Logo = ({ icon, id, text, right, isRotating, hasBackground, scaleAnimationStart }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -14,7 +14,6 @@ const Logo = ({ icon, id, text, width, height, right, isRotating, hasBackground,
     return (
         <motion.div
             className={`relative z-10 flex justify-center items-center left-[2px] lg:left-0 ${hasBackground ? 'bg-white p-2 rounded-full' : ''}`}
-            id={id}
             ref={ref}
             style={{
                 scale: scaleProgress,
@@ -23,9 +22,11 @@ const Logo = ({ icon, id, text, width, height, right, isRotating, hasBackground,
         >
             <motion.img
                 src={icon}
+                id={id}
                 alt='icon'
-                style={{ width: `${width}px`, height: `${height}px` }}
-                className='filter drop-shadow-lg shadow-green-500 '
+                className={`filter drop-shadow-lg shadow-green-500 ${
+                    hasBackground ? 'w-[24px] h-[24px] lg:w-[44px] lg:h-[44px]' : 'w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]'
+                }`}
                 animate={isRotating ? { rotate: 360 } : {}}
                 transition={{
                     duration: 3,
@@ -41,8 +42,6 @@ const Logo = ({ icon, id, text, width, height, right, isRotating, hasBackground,
 };
 
 Logo.propTypes = {
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
     icon: PropTypes.string.isRequired,
     id: PropTypes.string,
     text: PropTypes.string,

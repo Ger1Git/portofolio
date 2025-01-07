@@ -40,7 +40,7 @@ export const projects = [
         title: 'Expense Tracker',
         description:
             'A website where you can track your incomes and expenses, as well as visualize the data in charts. It is also possible to add a note to each transaction.',
-        image: 'src/public/portfolio.png',
+        image: 'src/public/spendingApp.png',
         link: 'https://github.com/Ger1Git/spendingApp',
         technologies: ['React', 'Tailwind', 'NodeJS', 'ExpressJS', 'MongoDB']
     },

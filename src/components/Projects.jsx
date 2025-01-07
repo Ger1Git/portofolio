@@ -85,7 +85,7 @@ const Projects = () => {
                             className='flex flex-col items-center justify-center relative w-[280px] h-[420px] rounded-2xl bg-gray-700/40 shadow-md overflow-hidden'
                         >
                             <div className='h-1/2 w-full'>
-                                <img src={project.image} alt='project_image' className='w-full h-full object-cover' />
+                                <img src={project.image} alt='project_image' className='w-full h-full object-contain' />
                             </div>
                             <div className='text-center p-2'>
                                 <h2 className='text-2xl font-semibold'>{project.title}</h2>
@@ -101,20 +101,18 @@ const Projects = () => {
                 <div className='swiper-pagination flex justify-center mt-4 space-x-2 relative z-10'></div>
 
                 <div className='flex flex-col lg:flex-row lg:flex-wrap items-center justify-center mt-4 gap-[20px]'>
-                    <span className='mr-2 font-semibold text-xl'>Technologies used:</span>
-                    <div className='flex flex-row flex-wrap items-center justify-center gap-[20px] w-[90%]'>
+                    <span className='mr-2 font-semibold text-md lg:text-2xl'>Technologies used:</span>
+                    <div className='flex flex-row flex-wrap items-center justify-center gap-[20px] w-[90%] lg:mt-[10px]'>
                         {projects[activeIndex]?.technologies.map((tech) => (
                             <div key={tech} className='flex flex-col items-center'>
                                 <Logo
                                     key={tech}
                                     icon={techIcons[tech].icon}
-                                    width={techIcons[tech].hasBackground ? 24 : 40}
-                                    height={techIcons[tech].hasBackground ? 24 : 40}
                                     isRotating={techIcons[tech].isRotating}
                                     hasBackground={techIcons[tech].hasBackground}
                                     scaleAnimationStart={'-100%'}
                                 />
-                                <span className='text-sm text-center mt-2'>{tech}</span>
+                                <span className='text-sm lg:text-lg text-center mt-2'>{tech}</span>
                             </div>
                         ))}
                     </div>
