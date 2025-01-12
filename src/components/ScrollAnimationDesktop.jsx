@@ -13,7 +13,7 @@ import bootstrap from '../public/bootstrap.svg';
 import nodejs from '../public/nodejs.svg';
 import expressjs from '../public/expressjs.svg';
 import git from '../public/git.svg';
-import jQuery from '../public/jQuery.svg';
+import jQuery from '../public/jquery.svg';
 import angular from '../public/angular.svg';
 import mongoDb from '../public/mongodb.svg';
 import mysql from '../public/mysql.svg';

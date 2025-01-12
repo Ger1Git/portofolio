@@ -20,7 +20,7 @@ import bootstrapIcon from '../public/bootstrap.svg';
 import nodejsIcon from '../public/nodejs.svg';
 import expressjsIcon from '../public/expressjs.svg';
 import gitIcon from '../public/git.svg';
-import jQueryIcon from '../public/jQuery.svg';
+import jQueryIcon from '../public/jquery.svg';
 import angularIcon from '../public/angular.svg';
 import mongoDbIcon from '../public/mongodb.svg';
 import mysqlIcon from '../public/mysql.svg';
