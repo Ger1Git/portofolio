@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { profileDescription } from '../utils/constants';
 import Button from './elements/Button';
 import SVG from './elements/SVG';
-import linkedIn from '../public/linkedin.svg';
+import linkedIn from '../public/linkedIn.svg';
 import github from '../public/github.svg';
 import CV from '../public/CV.pdf';
 
