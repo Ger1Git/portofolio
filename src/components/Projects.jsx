@@ -6,42 +6,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import StyledHeader from './StyledHeader';
-import { projects } from '../utils/constants';
 import Logo from './elements/Logo';
-
-// Import SVG icons
-import reactIcon from '../public/react.svg';
-import htmlIcon from '../public/html.svg';
-import cssIcon from '../public/css.svg';
-import javascriptIcon from '../public/javascript.svg';
-import typescriptIcon from '../public/typescript.svg';
-import tailwindIcon from '../public/tailwind.svg';
-import bootstrapIcon from '../public/bootstrap.svg';
-import nodejsIcon from '../public/nodejs.svg';
-import expressjsIcon from '../public/expressjs.svg';
-import gitIcon from '../public/git.svg';
-import jQueryIcon from '../public/jquery.svg';
-import angularIcon from '../public/angular.svg';
-import mongoDbIcon from '../public/mongodb.svg';
-import mysqlIcon from '../public/mysql.svg';
-
-// Map technology names to icons
-const techIcons = {
-    React: { icon: reactIcon, isRotating: true, hasBackground: false },
-    HTML: { icon: htmlIcon, isRotating: false, hasBackground: false },
-    CSS: { icon: cssIcon, isRotating: false, hasBackground: false },
-    JavaScript: { icon: javascriptIcon, isRotating: false, hasBackground: false },
-    TypeScript: { icon: typescriptIcon, isRotating: false, hasBackground: false },
-    Tailwind: { icon: tailwindIcon, isRotating: false, hasBackground: false },
-    Bootstrap: { icon: bootstrapIcon, isRotating: false, hasBackground: false },
-    NodeJS: { icon: nodejsIcon, isRotating: false, hasBackground: false },
-    ExpressJS: { icon: expressjsIcon, isRotating: false, hasBackground: true },
-    Git: { icon: gitIcon, isRotating: false, hasBackground: true },
-    jQuery: { icon: jQueryIcon, isRotating: false, hasBackground: true },
-    Angular: { icon: angularIcon, isRotating: false, hasBackground: false },
-    MongoDB: { icon: mongoDbIcon, isRotating: false, hasBackground: false },
-    MySQL: { icon: mysqlIcon, isRotating: false, hasBackground: true }
-};
+import { projects, techIcons } from '../utils/constants';
 
 const Projects = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -82,12 +48,12 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <SwiperSlide
                             key={index}
-                            className='flex flex-col items-center justify-center relative w-[280px] h-[420px] rounded-2xl bg-gray-700/40 shadow-md overflow-hidden'
+                            className='flex flex-col items-center justify-between relative w-[280px] h-[420px] rounded-2xl bg-gray-700/40 shadow-md overflow-hidden'
                         >
                             <div className='h-1/2 w-full'>
-                                <img src={project.image} alt='project_image' className='w-full h-full object-contain' />
+                                <img src={project.image} alt='project_image' className='w-full h-full object-cover object-center' />
                             </div>
-                            <div className='text-center p-2'>
+                            <div className='h-1/ w-full text-center p-2 flex flex-col justify-center'>
                                 <h2 className='text-2xl font-semibold'>{project.title}</h2>
                                 <p className='mt-2'>{project.description}</p>
                             </div>
@@ -99,23 +65,25 @@ const Projects = () => {
                 </Swiper>
 
                 <div className='swiper-pagination flex justify-center mt-4 space-x-2 relative z-10'></div>
-
-                <div className='flex flex-col lg:flex-row lg:flex-wrap items-center justify-center mt-4 gap-[20px]'>
+                <div className='flex flex-col lg:flex-wrap items-center justify-center mt-4 gap-[20px]'>
                     <span className='mr-2 font-semibold text-md lg:text-2xl'>Technologies used:</span>
                     <div className='flex flex-row flex-wrap items-center justify-center gap-[20px] w-[90%] lg:mt-[10px]'>
                         {projects[activeIndex]?.technologies.map((tech) => (
-                            <div key={tech} className='flex flex-col items-center'>
-                                <Logo
-                                    key={tech}
-                                    icon={techIcons[tech].icon}
-                                    isRotating={techIcons[tech].isRotating}
-                                    hasBackground={techIcons[tech].hasBackground}
-                                    scaleAnimationStart={'-100%'}
-                                />
-                                <span className='text-sm lg:text-lg text-center mt-2'>{tech}</span>
-                            </div>
+                            <>
+                                <div key={tech} className='flex flex-col items-center'>
+                                    <Logo
+                                        key={tech}
+                                        icon={techIcons[tech].icon}
+                                        isRotating={techIcons[tech].isRotating}
+                                        hasBackground={techIcons[tech].hasBackground}
+                                        scaleAnimationStart={'-100%'}
+                                    />
+                                    <span className='text-sm lg:text-lg text-center mt-2'>{tech}</span>
+                                </div>
+                            </>
                         ))}
                     </div>
+                    {projects[activeIndex]?.link && <a href={projects[activeIndex].link} target='_blank' rel='noopener noreferrer' className='relative cursor-pointer rounded-lg p-4 overflow-hidden bg-[#125c29] hover:bg-[#157a35]'>View Project</a>}
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ const CareerAchievement = ({ title, date, description, icon, index }) => {
                 <img src={icon} alt='no image' className='object-contain h-full w-full' />
             </div>
             <div
-                className={`py-[20px] px-[30px] bg-white/50 hover:bg-white/80 hover:scale-105 ${
+                className={`py-[10px] px-[15px] lg:py-[20px] lg:px-[30px] bg-white/50 hover:bg-white/80 hover:scale-105 ${
                     isEven ? 'lg:hover:translate-x-[-10px]' : 'lg:hover:translate-x-[10px]'
                 } transition-transform duration-300 rounded-[6px] relative shadow-custom group`}
             >
