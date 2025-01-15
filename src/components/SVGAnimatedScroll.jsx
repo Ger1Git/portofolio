@@ -50,7 +50,7 @@ const SVGAnimatedScroll = () => {
                     style={{ height: useTransform(scrollYProgress, [0, 0.8], ['0%', '98%']) }}
                 ></motion.div>
                 <div className='h-[200px]'>
-                    <Logo icon={html} text={'HTML'} right={-70} scaleAnimationStart={'300%'} />
+                    <Logo icon={html} text={'HTML'} right={-70} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                 </div>
                 <div className='relative flex justify-center items-center h-[200px] w-[100%]'>
                     <motion.div className='pb-[75px]' style={{ height: useTransform(scrollYProgress, [0, 0.8], ['0%', '50%']) }} ref={logoRefCSS}>
@@ -61,11 +61,11 @@ const SVGAnimatedScroll = () => {
                         <div className='text-xl'>Frameworks</div>
                         <div className='flex flex-col justify-around h-[100%]'>
                             <div ref={logoRefTailwind} className='top-[-110px] left-[-140px] flex flex-col items-center text-xl'>
-                                <Logo icon={tailwind} right={-200} scaleAnimationStart={'300%'} />
+                                <Logo icon={tailwind} right={-200} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                                 Tailwind
                             </div>
                             <div ref={logoRefBootstrap} className='top-[-110px] left-[-140px] pt-[25px] flex flex-col items-center text-xl'>
-                                <Logo icon={bootstrap} right={-200} scaleAnimationStart={'300%'} />
+                                <Logo icon={bootstrap} right={-200} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                                 Bootstrap
                             </div>
                         </div>
@@ -73,10 +73,10 @@ const SVGAnimatedScroll = () => {
                 </div>
                 <div className='h-[200px] flex justify-center items-end relative group hover:scale-120 transition-all duration-300'>
                     <div className='relative z-10'>
-                        <Logo icon={javascript} right={-120} scaleAnimationStart={'300%'} />
+                        <Logo icon={javascript} right={-120} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                     <div className={`absolute z-20 transition-opacity duration-500 ease-in-out ${showTypeScript ? 'opacity-100' : 'opacity-0'}`}>
-                        <Logo icon={typescript} scaleAnimationStart={'300%'} />
+                        <Logo icon={typescript} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                     <motion.div
                         className='absolute text-xl left-[80px] bottom-[15px]'
@@ -88,43 +88,43 @@ const SVGAnimatedScroll = () => {
                 <ScrollableLineText text={'Frontend'} scrollRatio={0.2} startOfAnimation={'110%'} />
                 <div className='h-[200px] flex items-center relative flex-col w-[100%]'>
                     <div className='relative z-10 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={react} text={'React'} right={-70} isRotating={true} hasBackground={true} scaleAnimationStart={'300%'} />
+                        <Logo icon={react} text={'React'} right={-70} isRotating={true} hasBackground={true} scaleAnimationStart={'300%'} width={'60px'} height={'h-[60px]'}/>
                     </div>
                 </div>
                 <div className='h-[200px] flex z-10 justify-center items-start'>
-                    <Logo icon={angular} text={'Angular'} right={-80} scaleAnimationStart={'275%'} />
+                    <Logo icon={angular} text={'Angular'} right={-80} scaleAnimationStart={'275%'} width={'w-[60px]'} height={'h-[60px]'}/>
                 </div>
                 <div className='h-[100px] flex z-10 justify-center items-start'>
                     <div className='relative z-10 flex justify-center items-start group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={jQuery} text={'jQuery'} right={-80} hasBackground={true} scaleAnimationStart={'300%'} />
+                        <Logo icon={jQuery} text={'jQuery'} right={-80} hasBackground={true} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                 </div>
                 <ScrollableLineText text={'Backend'} scrollRatio={0.1} startOfAnimation={'90%'} />
                 <div className='h-[200px] flex items-center relative flex-col'>
                     <div className='relative z-10 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={nodejs} text={'NodeJS'} right={-80} hasBackground={true} scaleAnimationStart={'300%'} />
+                        <Logo icon={nodejs} text={'NodeJS'} right={-80} hasBackground={true} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                 </div>
                 <div className='h-[100px] flex z-10 items-start'>
                     <div className='relative z-10 flex justify-center items-start group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={expressjs} text={'Express.js'} right={-100} hasBackground={true} scaleAnimationStart={'300%'} />
+                        <Logo icon={expressjs} text={'Express.js'} right={-100} hasBackground={true} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                 </div>
                 <ScrollableLineText text={'Databases'} scrollRatio={0.2} startOfAnimation={'80%'} />
                 <div className='h-[200px] flex items-center relative flex-col'>
                     <div className='relative z-10 flex justify-center items-center group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={mongoDb} text={'MongoDB'} right={-110} hasBackground={true} scaleAnimationStart={'200%'} />
+                        <Logo icon={mongoDb} text={'MongoDB'} right={-110} hasBackground={true} scaleAnimationStart={'200%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                 </div>
                 <div className='h-[200px] flex z-10 justify-center items-start'>
                     <div className='relative z-10  flex justify-center items-start group hover:scale-120  transition-all duration-300'>
-                        <Logo icon={mysql} text={'MySQL'} right={-80} hasBackground={true} scaleAnimationStart={'200%'} />
+                        <Logo icon={mysql} text={'MySQL'} right={-80} hasBackground={true} scaleAnimationStart={'200%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                 </div>
                 <ScrollableLineText text={'Version Control'} scrollRatio={0.2} startOfAnimation={'70%'} />
                 <div className='h-[200px] flex justify-end items-center relative flex-col'>
                     <div className='relative z-10 flex justify-center items-center group hover:scale-120 transition-all duration-300 '>
-                        <Logo icon={git} text={'Git'} right={-50} hasBackground={true} scaleAnimationStart={'200%'} />
+                        <Logo icon={git} text={'Git'} right={-50} hasBackground={true} scaleAnimationStart={'200%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </div>
                 </div>
             </div>
