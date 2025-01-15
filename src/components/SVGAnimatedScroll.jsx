@@ -54,9 +54,8 @@ const SVGAnimatedScroll = () => {
                 </div>
                 <div className='relative flex justify-center items-center h-[200px] w-[100%]'>
                     <motion.div className='pb-[75px]' style={{ height: useTransform(scrollYProgress, [0, 0.8], ['0%', '50%']) }} ref={logoRefCSS}>
-                        <Logo icon={css} text='CSS / SCSS' right={-110} scaleAnimationStart={'300%'} />
+                        <Logo icon={css} text='CSS / SCSS' right={-110} scaleAnimationStart={'300%'} width={'w-[60px]'} height={'h-[60px]'}/>
                     </motion.div>
-
                     <div className='absolute z-30 flex flex-col h-full left-[20px]'>
                         <div className='text-xl'>Frameworks</div>
                         <div className='flex flex-col justify-around h-[100%]'>
