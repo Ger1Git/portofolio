@@ -53,7 +53,7 @@ const Projects = () => {
                             <div className='h-1/2 w-full'>
                                 <img src={project.image} alt='project_image' className='w-full h-full object-cover object-center' />
                             </div>
-                            <div className='h-1/ w-full text-center p-2 flex flex-col justify-center'>
+                            <div className='h-1/ w-full text-center p-2 flex flex-col justify-center flex-1'>
                                 <h2 className='text-2xl font-semibold'>{project.title}</h2>
                                 <p className='mt-2'>{project.description}</p>
                             </div>

@@ -9,9 +9,9 @@ const StyledHeader = ({ text }) => {
         offset: ['start end', 'end start']
     });
 
-    const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-    const scaleProgress = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-    const rotateProgress = useTransform(scrollYProgress, [0, 0.3], [-45, 0]);
+    const opacityProgress = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+    const scaleProgress = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+    const rotateProgress = useTransform(scrollYProgress, [0, 0.1], [-45, 0]);
 
     return (
         <div className='flex items-center justify-center'>

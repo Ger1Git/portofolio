@@ -113,7 +113,7 @@ export const projects = [
       "A clone for a social media platform where users can post tweets, follow others, like, and comment. It includes a real-time feed, hashtags, and user authentication.",
     image: twitterImage,
     link: "https://twitter-clone-ger1git.vercel.app",
-    technologies: ["React", "Tailwind", "NodeJS", "ExpressJS"],
+    technologies: ["React", "Tailwind", "NodeJS", "ExpressJS", "MongoDB"],
   },
   {
     title: "Gaze Prediction",
