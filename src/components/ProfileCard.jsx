@@ -90,7 +90,7 @@ const ProfileCard = () => {
                     <span className='text-[#00df9a]'>{displayedText}</span>
                     <span className='blinking-cursor'></span>
                 </h3>
-                <div className='flex mt-[30px] lg:my-[40px] justify-center items-center gap-[30px]'>
+                <div className='flex mt-8 lg:my-[40px] justify-center items-center gap-[30px]'>
                     <Button
                         onClickEvent={() => scrollToSection('contact')}
                         classes='relative cursor-pointer rounded-lg overflow-hidden glowButton glowShadow'
