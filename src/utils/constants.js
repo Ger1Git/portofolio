@@ -104,7 +104,7 @@ export const projects = [
     description:
       "A website where you can track your incomes and expenses, as well as visualize the data in charts. It is also possible to add a note to each transaction.",
     image: spendingAppImage,
-    link: "https://github.com/Ger1Git/spendingApp",
+    link: "https://spending-app-frontend.vercel.app",
     technologies: ["React", "Tailwind", "NodeJS", "ExpressJS", "MongoDB"],
   },
   {
@@ -123,4 +123,27 @@ export const projects = [
     link: "",
     technologies: ["Python", "Dlib", "OpenCV", "scikit-learn", "Matplotlib"],
   },
+];
+
+export const markupLogos = [
+  { icon: htmlIcon, label: 'HTML' },
+  { icon: cssIcon, label: 'CSS' },
+  { icon: tailwindIcon, label: 'Tailwind' },
+  { icon: bootstrapIcon, label: 'Bootstrap' }
+];
+
+export const databasesLogos = [
+  { icon: mongoDbIcon, label: 'MongoDB' },
+  { icon: mysqlIcon, label: 'MySQL' }
+];
+
+export const frontendLogos = [
+  { icon: reactIcon, label: 'React' },
+  { icon: angularIcon, label: 'Angular' },
+  { icon: jQueryIcon, label: 'jQuery' }
+];
+
+export const backendLogos = [
+  { icon: nodejsIcon, label: 'NodeJS' },
+  { icon: expressjsIcon, label: 'Express.js' }
 ];
