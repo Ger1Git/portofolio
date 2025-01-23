@@ -29,7 +29,7 @@ export const careerAchievements = [
     },
     {
         title: 'Machinas Ecommerce SRL',
-        date: 'September 2022 - Present',
+        date: 'October 2022 - Present',
         description: 'Full Stack Developer',
         icon: 'src/public/machinas.svg'
     }
