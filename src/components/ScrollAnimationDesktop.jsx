@@ -1,22 +1,11 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import StyledHeader from './StyledHeader';
 import LineConnector from './elements/LineConnector';
 import Logo from './elements/Logo';
-import react from '../public/react.svg';
-import html from '../public/html.svg';
-import css from '../public/css.svg';
+import { markupLogos, databasesLogos, frontendLogos, backendLogos } from '../utils/constants';
 import javascript from '../public/javascript.svg';
 import typescript from '../public/typescript.svg';
-import tailwind from '../public/tailwind.svg';
-import bootstrap from '../public/bootstrap.svg';
-import nodejs from '../public/nodejs.svg';
-import expressjs from '../public/expressjs.svg';
-import git from '../public/git.svg';
-import jQuery from '../public/jquery.svg';
-import angular from '../public/angular.svg';
-import mongoDb from '../public/mongodb.svg';
-import mysql from '../public/mysql.svg';
 
 const SVGAnimatedScroll = () => {
     const ref = useRef(null);
@@ -24,29 +13,6 @@ const SVGAnimatedScroll = () => {
         target: ref,
         offset: ['20% end', 'end start']
     });
-
-    const markupLogos = [
-        { icon: html, label: 'HTML' },
-        { icon: css, label: 'CSS' },
-        { icon: tailwind, label: 'Tailwind' },
-        { icon: bootstrap, label: 'Bootstrap' }
-    ];
-
-    const databasesLogos = [
-        { icon: mongoDb, label: 'MongoDB' },
-        { icon: mysql, label: 'MySQL' }
-    ];
-
-    const frontendLogos = [
-        { icon: react, label: 'React' },
-        { icon: angular, label: 'Angular' },
-        { icon: jQuery, label: 'jQuery' }
-    ];
-
-    const backendLogos = [
-        { icon: nodejs, label: 'NodeJS' },
-        { icon: expressjs, label: 'Express.js' }
-    ];
 
     const opacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
     const scale = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
@@ -133,13 +99,13 @@ const SVGAnimatedScroll = () => {
             <div className='flex-1 w-full flex gap-[50px]'>
                 <div className='flex flex-col flex-1 gap-[50px] justify-center'>
                     {frontendLogos.map(({ icon, label }, index) => (
-                        <>
-                            <div key={label} className='flex flex-col gap-[5px] items-center'>
+                        <React.Fragment key={label}>
+                            <div className='flex flex-col gap-[5px] items-center'>
                                 <Logo icon={icon} id={label} hasBackground={true} scaleAnimationStart={`${0 - index * 50}%`} />
                                 <motion.span className='text-xl'>{label}</motion.span>
                             </div>
                             <LineConnector divAId='JavaScript' divBId={label} scaleAnimationStart={`${0 - index * 25}%`} />
-                        </>
+                        </React.Fragment>
                     ))}
                 </div>
                 <div className='flex justify-center items-center flex-col flex-none'>
@@ -180,13 +146,13 @@ const SVGAnimatedScroll = () => {
                 </div>
                 <div className='flex flex-col flex-1 gap-[50px] justify-center'>
                     {backendLogos.map(({ icon, label }, index) => (
-                        <>
-                            <div key={label} className='flex flex-col gap-[5px] items-center'>
+                        <React.Fragment key={label}>
+                            <div className='flex flex-col gap-[5px] items-center'>
                                 <Logo icon={icon} id={label} hasBackground={true} scaleAnimationStart={`${0 - index * 50}%`} />
                                 <motion.span className='text-xl'>{label}</motion.span>
                             </div>
                             <LineConnector divAId='JavaScript' divBId={label} scaleAnimationStart={`${-100 - index * 25}%`} />
-                        </>
+                        </React.Fragment>
                     ))}
                 </div>
             </div>

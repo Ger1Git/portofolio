@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
-import StyledHeader from './StyledHeader';
 import FloatingLabelInput from './elements/FloatingLabelInput';
 
 const ContactForm = () => {
@@ -48,7 +47,7 @@ const ContactForm = () => {
     return (
         <div className='flex flex-col items-center justify-center mb-[50px] lg:mb-[100px] px-4' id='contact'>
             <form onSubmit={handleSubmit} className='bg-white/10 border border-white/20 backdrop-blur-md text-white rounded-lg p-8 w-full max-w-sm'>
-                <StyledHeader text={'Contact'} />
+                <div className='flex items-center justify-center text-6xl font-bold text-[#2ecc71]'>Contact</div>
 
                 <div className='mt-8 flex flex-col gap-[10px]'>
                     <FloatingLabelInput type='text' name='companyName' placeholder='Company Name' value={formData.companyName} onChange={handleChange} />

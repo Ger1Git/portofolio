@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-const LineConnector = ({ divAId, divBId, scaleAnimationStart }) => {
+const LineConnector = ({ divAId, divBId }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -20,15 +20,14 @@ const LineConnector = ({ divAId, divBId, scaleAnimationStart }) => {
                 transition: 'all 0.2s ease-out'
             }}
         >
-            <Xarrow start={divAId} end={divBId} color='#2ecc71' curveness='0.5' strokeWidth={3} headSize={0} endAnchor='middle' tailSize={0} path='smooth' />
+            <Xarrow start={divAId} end={divBId} color='#2ecc71' curveness={0.5} strokeWidth={3} headSize={0} endAnchor='middle' tailSize={0} path='smooth' />
         </motion.div>
     );
 };
 
 LineConnector.propTypes = {
     divAId: PropTypes.string.isRequired,
-    divBId: PropTypes.string.isRequired,
-    scaleAnimationStart: PropTypes.string
+    divBId: PropTypes.string.isRequired
 };
 
 export default LineConnector;

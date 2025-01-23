@@ -1,6 +1,6 @@
 import profilePic from '../public/CV_Image_cut.jpg';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, animate } from 'framer-motion';
 import { profileDescription } from '../utils/constants';
 import Button from './elements/Button';
 import SVG from './elements/SVG';
@@ -13,6 +13,22 @@ const ProfileCard = () => {
     const [displayedText, setDisplayedText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [speed, setSpeed] = useState(150);
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const topPosition = element.offsetTop;
+            const navbarHeight = 96;
+            const adjustedPosition = sectionId === 'about-me' ? topPosition - navbarHeight : topPosition;
+
+            animate(window.scrollY, adjustedPosition, {
+                type: 'spring',
+                stiffness: 40,
+                damping: 30,
+                onUpdate: (latest) => window.scrollTo(0, latest)
+            });
+        }
+    };
 
     useEffect(() => {
         const handleTyping = () => {
@@ -74,9 +90,9 @@ const ProfileCard = () => {
                     <span className='text-[#00df9a]'>{displayedText}</span>
                     <span className='blinking-cursor'></span>
                 </h3>
-                <div className='hidden lg:flex my-[20px] lg:my-[40px] items-center gap-[30px]'>
+                <div className='flex mt-8 lg:my-[40px] justify-center items-center gap-[30px]'>
                     <Button
-                        onClickEvent={() => alert('Hire Me clicked!')}
+                        onClickEvent={() => scrollToSection('contact')}
                         classes='relative cursor-pointer rounded-lg overflow-hidden glowButton glowShadow'
                         text='Contact Me'
                     />
@@ -86,19 +102,6 @@ const ProfileCard = () => {
                         text='Download CV'
                     />
                 </div>
-            </motion.div>
-            <motion.div
-                className='flex lg:hidden mt-[30px] lg:mt-0 lg:my-[40px] flex items-center gap-[30px]'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-            >
-                <Button
-                    onClickEvent={() => alert('Hire Me clicked!')}
-                    classes='relative cursor-pointer rounded-lg overflow-hidden glowButton glowShadow'
-                    text='Contact Me'
-                />
-                <Button href={CV} classes='relative whitespace-nowrap cursor-pointer rounded-lg border border-green-500 overflow-hidden' text='Download CV' />
             </motion.div>
         </div>
     );
