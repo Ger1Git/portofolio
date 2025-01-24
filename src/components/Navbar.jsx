@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { motion } from 'framer-motion';
+import { motion, animate } from 'framer-motion';
 import { navigationLinks } from '../utils/constants';
-import { animate } from 'framer-motion';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
@@ -13,13 +12,11 @@ const Navbar = () => {
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            const topPosition = element.offsetTop;
-            const navbarHeight = navbarRef.current.offsetHeight;
-            const adjustedPosition = sectionId === 'about-me' ? topPosition - navbarHeight : topPosition;
+            const topPosition = sectionId === 'about-me' ? 0 : element.getBoundingClientRect().top + window.scrollY;
 
-            animate(window.scrollY, adjustedPosition, {
+            animate(window.scrollY, topPosition, {
                 type: 'spring',
-                stiffness: 100,
+                stiffness: 80,
                 damping: 20,
                 onUpdate: (latest) => window.scrollTo(0, latest)
             });
@@ -31,21 +28,12 @@ const Navbar = () => {
 
         const handleScroll = () => {
             const scrollY = window.scrollY;
-
-            if (scrollY > lastScrollY) {
-                setScrollDirection('down');
-            } else {
-                setScrollDirection('up');
-            }
-
+            setScrollDirection(scrollY > lastScrollY ? 'down' : 'up');
             lastScrollY = scrollY;
         };
 
         window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
@@ -72,8 +60,8 @@ const Navbar = () => {
                                 key={index}
                                 className={`relative p-4 whitespace-nowrap cursor-pointer hover:text-white ${activeItem === index ? 'text-white' : ''}`}
                                 onClick={() => {
-                                    setActiveItem(index);
                                     scrollToSection(section.id);
+                                    setActiveItem(index);
                                 }}
                             >
                                 {section.text}

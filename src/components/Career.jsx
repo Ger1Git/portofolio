@@ -14,10 +14,10 @@ const Career = () => {
     const lineHeight = useTransform(scrollYProgress, [0, 0.7], ['0%', '100%']);
 
     return (
-        <div className='bg-[#2b2b2b] py-[50px] relative z-0 lg:-mt-[100px]' id='career'>
+        <div className='bg-[#2b2b2b] py-[50px] lg:py-[100px] relative z-0' id='career'>
             <StyledHeader text={'Career'} />
 
-            <div className='text-center text-xl text-white px-[20px] mt-[50px] relative flex justify-center'>
+            <div className='text-center text-xl text-white px-[20px] mt-[50px] lg:mt-[100px] relative flex justify-center'>
                 <ul className='relative timeline-wrapper mb-[50px]' ref={ref}>
                     <motion.div
                         className='timeline'

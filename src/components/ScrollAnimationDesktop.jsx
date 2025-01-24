@@ -16,17 +16,15 @@ const SVGAnimatedScroll = () => {
 
     const opacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
     const scale = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
-    const fadeInOnScroll = useTransform(scrollYProgress, [0.2, 0.4, 0.6, 0.8], [0, 1, 1, 0]);
-    const y = useTransform(scrollYProgress, [0.2, 0.3], ['200%', '0%']);
     const lineWidth = useTransform(scrollYProgress, [0.2, 0.3], ['0%', '100%']);
 
     return (
-        <div ref={ref} className='flex flex-col items-center justify-center sticky top-[5%] gap-[25px] overflow-hidden h-screen'>
+        <div ref={ref} className='flex flex-col items-center justify-center sticky top-[5%] gap-[25px]'>
             <StyledHeader text={'Skills'} />
 
             {/* <SVGLineConnector /> */}
 
-            <div className='flex w-full'>
+            <div className='flex w-full lg:mt-[50px]'>
                 <div className='flex flex-col flex-1 justify-center items-center gap-[50px]'>
                     <div className='relative hover:text-gray-300 transition-colors duration-200'>
                         <span className='italic text-blue-300 text-4xl relative inline-block p-2'>
@@ -96,7 +94,7 @@ const SVGAnimatedScroll = () => {
                 </div>
             </div>
 
-            <div className='flex-1 w-full flex gap-[50px]'>
+            <div className='flex-1 w-full flex gap-[50px] mt-[50px]'>
                 <div className='flex flex-col flex-1 gap-[50px] justify-center'>
                     {frontendLogos.map(({ icon, label }, index) => (
                         <React.Fragment key={label}>
@@ -119,7 +117,7 @@ const SVGAnimatedScroll = () => {
                                 repeatType: 'mirror'
                             }}
                         >
-                            <Logo id='JavaScript' icon={javascript} scaleAnimationStart={'50%'} />
+                            <Logo id='JavaScript' icon={javascript} scaleAnimationStart={'-50%'} />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -131,7 +129,7 @@ const SVGAnimatedScroll = () => {
                             }}
                             style={{ position: 'absolute', top: 0, left: 0 }}
                         >
-                            <Logo icon={typescript} scaleAnimationStart={'50%'} />
+                            <Logo icon={typescript} scaleAnimationStart={'-50%'} />
                         </motion.div>
                     </div>
                     <motion.div
@@ -156,22 +154,6 @@ const SVGAnimatedScroll = () => {
                     ))}
                 </div>
             </div>
-
-            <motion.div style={{ opacity: fadeInOnScroll, y }} className='sticky bottom-[10%] hidden lg:flex items-center justify-center z-10 w-full'>
-                <motion.h1
-                    className='text-3xl'
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: [1, 0.5, 1] }}
-                    transition={{
-                        duration: 1,
-                        ease: 'easeInOut',
-                        repeat: Infinity,
-                        repeatType: 'loop'
-                    }}
-                >
-                    Scroll Down
-                </motion.h1>
-            </motion.div>
         </div>
     );
 };

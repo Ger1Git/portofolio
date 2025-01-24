@@ -82,9 +82,9 @@ const Projects = () => {
                 </Swiper>
 
                 <div className='swiper-pagination flex justify-center mt-4 space-x-2 relative z-10'></div>
-                <div className='flex flex-col lg:flex-wrap items-center justify-center mt-4 gap-[20px]'>
+                <div className='flex flex-col lg:flex-wrap items-center justify-center mt-4 gap-[20px] lg:gap-[40px]'>
                     <span className='mr-2 font-semibold text-md lg:text-2xl'>Technologies used:</span>
-                    <div className='flex flex-row flex-wrap items-center justify-center gap-[20px] w-[90%] lg:mt-[10px]'>
+                    <div className='flex flex-row flex-wrap items-center justify-center gap-[20px] w-[90%]'>
                         {projects[activeIndex]?.technologies.map((tech) => (
                             <React.Fragment key={tech}>
                                 <div className='flex flex-col items-center'>
@@ -100,7 +100,16 @@ const Projects = () => {
                             </React.Fragment>
                         ))}
                     </div>
-                    {projects[activeIndex]?.link && <a href={projects[activeIndex].link} target='_blank' rel='noopener noreferrer' className='relative cursor-pointer rounded-lg p-4 overflow-hidden bg-[#125c29] hover:bg-[#157a35]'>View Project</a>}
+                    {projects[activeIndex]?.link && (
+                        <a
+                            href={projects[activeIndex].link}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='relative cursor-pointer rounded-lg p-4 overflow-hidden bg-[#125c29] hover:bg-[#157a35]'
+                        >
+                            View Project
+                        </a>
+                    )}
                 </div>
             </div>
         </div>
